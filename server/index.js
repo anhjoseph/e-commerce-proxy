@@ -1,11 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const path = require('path');
 
-const port = 8080;
+const port = 9000;
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../client/public/')));
 
 app.listen(port, err => {
   if (err) {
